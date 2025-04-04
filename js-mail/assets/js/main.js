@@ -2,7 +2,7 @@
 // * Crea una lista di email di invitati ad una festa. Chiedi all’utente la sua email, controlla che sia nella lista di chi può accedere, stampa un messaggio appropriato sull’esito del controllo, utilizzando un ciclo for. 
 // * Non è consentito usare nessun metodo proprio degli array (come includes, per esempio). Si può fare? Certo che si basta ragionare un po’. Nota: Non è necessario provvedere alla validazione delle email
 
-const isDebug = false;
+const isDebug = true;
 const acceptedEmails = [
     "classe144@email.it",
     "donato@email.it",
@@ -15,11 +15,15 @@ console.table(acceptedEmails);
 
 const userEmail = prompt("Inserisci la tue email", acceptedEmails[0]);
 if (isDebug) {
-    console.log(`Email inserita dall'utente: ${userEmail}`)
+    console.info(`Email inserita dall'utente: ${userEmail}`)
+    console.info("__________")
 }
 let emailFound = false;
 
-for (i = 0; i < acceptedEmails.length; i ++) {
+// for (i = 0; i < acceptedEmails.length; i ++) {
+// * CONTROLLO NELLE CONDIZIONI DEL FOR ANCHE SI NON AVER TROVATO L'EMAIL, IN CASO LA TROVASSI PRESTO E AVESSI DA CONTROLLARNE UN NUMERO ENORME
+// * (ANCHE SE HA DETTO TIZIANO CHE I DATABASE SONO VELOCI ED OTTIMIZZATI PER LA RICERCA E CHE NON SERVIREBBE)
+for (i = 0; i < acceptedEmails.length && emailFound === false; i ++) {
     const currentEmailToCheck = acceptedEmails[i];
     if (isDebug) {
         console.log(`Email accettata con cui sto confrontando: ${currentEmailToCheck}`)
