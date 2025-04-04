@@ -33,12 +33,8 @@ const maxNumber = 6;
 
 
 // * VERSIONE CON PULSANTE PIÚ USER-FRIENDLY
-
-
-
 let userScore = 0;
 let computerScore = 0;
-
 const scoreToShow = document.getElementById('score');
 
 const btnPlayGame = document.getElementById('playGame');
