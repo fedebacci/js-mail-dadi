@@ -35,8 +35,10 @@ for (i = 0; i < acceptedEmails.length && emailFound === false; i ++) {
     }
 }
 if (emailFound === true) {
+    console.info("Puoi venire alla festa!");
     alert("Puoi venire alla festa!");
 } else {
+    console.info("Mi dispiace, non sei stato invitato!");
     alert("Mi dispiace, non sei stato invitato!");
 }
 window.location.reload()
