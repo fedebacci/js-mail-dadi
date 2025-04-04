@@ -11,34 +11,72 @@ const acceptedEmails = [
     "test@email.it",
     "altraemail@email.it"
 ];
-console.table(acceptedEmails);
 
-const userEmail = prompt("Inserisci la tue email", acceptedEmails[0]);
-if (isDebug) {
-    console.info(`Email inserita dall'utente: ${userEmail}`)
-    console.info("__________")
-}
-let emailFound = false;
+// * VERSIONE BASE SENZA PULSANTE CHE CHIEDE SUBITO L'EMAIL E CHE RICARICA AUTOMATICAMENTE LA PAGINA
+// const userEmail = prompt("Inserisci la tua email", acceptedEmails[0]);
+// if (isDebug) {
+//     console.info(`Email inserita dall'utente: ${userEmail}`)
+//     console.info("__________")
+// }
+// let emailFound = false;
 
-// for (i = 0; i < acceptedEmails.length; i ++) {
-// * CONTROLLO NELLE CONDIZIONI DEL FOR ANCHE SI NON AVER TROVATO L'EMAIL, IN CASO LA TROVASSI PRESTO E AVESSI DA CONTROLLARNE UN NUMERO ENORME
-// * (ANCHE SE HA DETTO TIZIANO CHE I DATABASE SONO VELOCI ED OTTIMIZZATI PER LA RICERCA E CHE NON SERVIREBBE)
-for (i = 0; i < acceptedEmails.length && emailFound === false; i ++) {
-    const currentEmailToCheck = acceptedEmails[i];
+// // for (i = 0; i < acceptedEmails.length; i ++) {
+// // * CONTROLLO NELLE CONDIZIONI DEL FOR ANCHE SI NON AVER TROVATO L'EMAIL, IN CASO LA TROVASSI PRESTO E AVESSI DA CONTROLLARNE UN NUMERO ENORME
+// // * (ANCHE SE HA DETTO TIZIANO CHE I DATABASE SONO VELOCI ED OTTIMIZZATI PER LA RICERCA E CHE NON SERVIREBBE)
+// for (i = 0; i < acceptedEmails.length && emailFound === false; i ++) {
+//     const currentEmailToCheck = acceptedEmails[i];
+//     if (isDebug) {
+//         console.log(`Email accettata con cui sto confrontando: ${currentEmailToCheck}`);
+//         console.log("Corrisponde all'email dell'utente?", userEmail === currentEmailToCheck);
+//         console.log("__________");
+//     }
+//     if (userEmail === currentEmailToCheck) {
+//         emailFound = true;
+//     }
+// }
+// if (emailFound === true) {
+//     console.info("Puoi venire alla festa!");
+//     alert("Puoi venire alla festa!");
+// } else {
+//     console.info("Mi dispiace, non sei stato invitato!");
+//     alert("Mi dispiace, non sei stato invitato!");
+// }
+// window.location.reload()
+
+
+
+// * VERSIONE CON PULSANTE PIÚ USER-FRIENDLY
+const btnAccessParty = document.getElementById('accessParty');
+btnAccessParty.addEventListener('click', () => {
+    console.clear();
+    console.table(acceptedEmails);
+    
+    const userEmail = prompt("Inserisci la tua email", acceptedEmails[0]);
     if (isDebug) {
-        console.log(`Email accettata con cui sto confrontando: ${currentEmailToCheck}`)
-        console.log("Corrisponde all'email dell'utente?", userEmail === currentEmailToCheck)
-        console.log("__________")
+        console.info(`Email inserita dall'utente: ${userEmail}`)
+        console.info("__________")
     }
-    if (userEmail === currentEmailToCheck) {
-        emailFound = true;
+    let emailFound = false;
+    
+    // for (i = 0; i < acceptedEmails.length; i ++) {
+    // * CONTROLLO NELLE CONDIZIONI DEL FOR ANCHE SI NON AVER TROVATO L'EMAIL, IN CASO LA TROVASSI PRESTO E AVESSI DA CONTROLLARNE UN NUMERO ENORME
+    // * (ANCHE SE HA DETTO TIZIANO CHE I DATABASE SONO VELOCI ED OTTIMIZZATI PER LA RICERCA E CHE NON SERVIREBBE)
+    for (i = 0; i < acceptedEmails.length && emailFound === false; i ++) {
+        const currentEmailToCheck = acceptedEmails[i];
+        if (isDebug) {
+            console.log(`Email accettata con cui sto confrontando: ${currentEmailToCheck}`);
+            console.log("Corrisponde all'email dell'utente?", userEmail === currentEmailToCheck);
+            console.log("__________");
+        }
+        if (userEmail === currentEmailToCheck) {
+            emailFound = true;
+        }
     }
-}
-if (emailFound === true) {
-    console.info("Puoi venire alla festa!");
-    alert("Puoi venire alla festa!");
-} else {
-    console.info("Mi dispiace, non sei stato invitato!");
-    alert("Mi dispiace, non sei stato invitato!");
-}
-window.location.reload()
+    if (emailFound === true) {
+        console.info("Puoi venire alla festa!");
+        alert("Puoi venire alla festa!");
+    } else {
+        console.info("Mi dispiace, non sei stato invitato!");
+        alert("Mi dispiace, non sei stato invitato!");
+    }
+})

@@ -11,14 +11,14 @@ console.info(`Numero estratto per l'utente: ${userNumber}`);
 console.info(`Numero estratto per il computer: ${computerNumber}`);
 
 if (userNumber > computerNumber) {
-    console.info(`L'utente ha vinto! (${userNumber} / ${computerNumber})`)
-    alert(`L'utente ha vinto! (${userNumber} / ${computerNumber})`)
+    console.info(`L'utente ha vinto! (${userNumber} / ${computerNumber})`);
+    alert(`L'utente ha vinto! (${userNumber} / ${computerNumber})`);
 } else if (userNumber < computerNumber) {
-    console.info(`Il computer ha vinto! (${computerNumber} / ${userNumber})`)
-    alert(`Il computer ha vinto! (${computerNumber} / ${userNumber})`)
+    console.info(`Il computer ha vinto! (${computerNumber} / ${userNumber})`);
+    alert(`Il computer ha vinto! (${computerNumber} / ${userNumber})`);
 } else {
     // SE NON È MAGGIORE O MINORE ALLORA È NECESSARIAMENTE UGUALE, NON AGGIUNGO CONTROLLO
-    console.info(`Pareggio! (${userNumber} / ${computerNumber})`)
-    alert(`Pareggio! (${userNumber} / ${computerNumber})`)
+    console.info(`Pareggio! (${userNumber} / ${computerNumber})`);
+    alert(`Pareggio! (${userNumber} / ${computerNumber})`);
 }
-window.location.reload()
+window.location.reload();
