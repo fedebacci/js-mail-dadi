@@ -71,13 +71,14 @@
         return Math.floor(Math.random() * (max - min + 1)) + min;
     };
     function generateListOfAcceptedEmails() {
+        console.clear();
         acceptedEmails.length = 0;
         const numberOfNames = getRandomNumber(maxNames, minNames);
         console.debug("______ numberOfNames", numberOfNames);
         while (acceptedEmails.length < numberOfNames) {
             const currentName = listOfEmails[getRandomNumber(listOfEmails.length - 1, 0)];
-            console.debug("acceptedEmails.length", acceptedEmails.length);
-            console.debug("currentName", currentName);
+            // console.debug("acceptedEmails.length", acceptedEmails.length);
+            // console.debug("currentName", currentName);
             if (acceptedEmails.find((email) => email === currentName) === undefined) {
                 acceptedEmails.push(currentName);
             };
