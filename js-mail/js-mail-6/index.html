@@ -51,7 +51,7 @@
                 <div class="row">
                     <div class="col-12">
                         <h1>
-                            JS Mail #5
+                            JS Mail #6
                         </h1>
                         <p class="mt-5">
                             Crea una lista di email di invitati ad una festa. Chiedi all’utente la sua email, controlla
@@ -71,16 +71,17 @@
                             Dopo la correzione, provo ad implementare le sfide lanciate da Samuel.
                             <br />
                             <strong>
-                                Sfida attuale (#2):
+                                Sfida attuale (#3):
                             </strong>
-                            Data una lista di email iniziale, genera un numero randomico N e crea l'array di email
-                            accettate contenente N email.
+                            Data una lista di email iniziale, chiedi all'utente un numero N di invitati da aggiongere
+                            alla lista di email accettate.
                             <br />
-                            Differentemente dalla prima sfida, però, non genero la lista in modo lineare (dalla prima
-                            alla N esima) ma la genero prendendo N volte un indirizzo casuale dalla lista (riordinandole
-                            comunque poi in ordine alfabetico).
+                            Siccome non voglio mostrare all'utente un prompt al caricamento iniziale della pagina, lo
+                            chiedo al click del pulsante "Genera nuova lista di invitati"
                             <br />
-                            NB: bisogna impedire l'inserimento di duplicati.
+                            In questa prima versione di questa sfida risolvo l'assenza iniziale di invitati
+                            controllando, al click del pulsante "Accedi alla festa", se esistono degli invitati o meno,
+                            e se non esistono avverto l'utente.
                         </p>
                         <button id="accessParty" class="btn btn-primary">
                             Accedi alla festa
