@@ -4,12 +4,6 @@
 
 
 
-// * TODO
-// * FAR INSERIRE UN NUMERO DI EMAIL ALL'UTENTE PER FAR CREARE A LUI L'ARRAY DI EMAIL ACCETTATE
-    // * TRAMITE PIU CLICK DEL PULSANTE "AGGIUNGI INVITATO"
-
-
-
 const acceptedEmails = [];
 
 
@@ -41,7 +35,7 @@ btnAccessParty.addEventListener('click', () => {
 
 
 const btnAddGuests = document.getElementById('addGuests');
-btnAddGuests.addEventListener('click', addGuestsToAcceptedEmails);
+btnAddGuests.addEventListener('click', addGuestToAcceptedEmails);
 const btnSortGuestsList = document.getElementById('sortGuestsList');
 btnSortGuestsList.addEventListener('click', sortGuests);
 
@@ -54,34 +48,37 @@ console.debug("addedGuestsList", addedGuestsList);
 
 
 
-function addGuestsToAcceptedEmails () {
-    const newGuests = prompt("Aggiungi l'indirizzo e-mail di tutti gli invitati, separandoli con una virgola. Segui l'esempio", "test1@email.it, test2@email.it").replaceAll(" ", "");
-    // Se volessimo accertarci che non vengano inseriti altri simboli, come / o altri tra le email, per rimuoverli utilizzerei lo sesso metodo su tutti i simboli che non voglio prima di utilizzare lo split.
-    const TmpAcceptedEmails = newGuests.split(',');
-    console.debug("TmpAcceptedEmails", TmpAcceptedEmails);
-    for (let i = 0; i <= TmpAcceptedEmails.length - 1; i ++) {
-        const currentEmail = TmpAcceptedEmails[i];
+function addGuestToAcceptedEmails () {
+    const newGuest = prompt("Aggiungi l'indirizzo e-mail dell'invitato");
+    console.debug("newGuest", newGuest);
+    const isDuplicate = acceptedEmails.find((email) => email === newGuest);
 
-        // CONTROLLO CHE L'ULTIMO VALORE NON SIA UNA STRINGA VUOTA, CHE SUCCEDE SE L'UTENTE INSERISCE DUE VOLTE LA VIRGOLA SENZA CARATTERI DIVERSI DALLO SPAZIO A SEPARARLE O COME ULTIMO CARATTERE UNA VIRGOLA
-        // CONTROLLO ANCHE LA PRESENZA DI DOPPIONI
-        const isDuplicate = acceptedEmails.find((email) => email === currentEmail);
-        if (currentEmail.length !== 0 && isDuplicate === undefined) {
-            acceptedEmails.push(currentEmail);
+    switch (true) {
+        case newGuest === null:
+            console.info("L'utente ha deciso di non aggiungere un altro invitato.");
+            break;
+        case newGuest.length === 0:
+            alert("Inserisci l'indirizzo email dell'invitato!");
+            addGuestToAcceptedEmails();
+            break;
+        case isDuplicate !== undefined:
+            alert("Hai già invitato questa persona!");
+            addGuestToAcceptedEmails();
+            break;
+        default:
+            acceptedEmails.push(newGuest);
+            if (btnAccessParty.classList.contains('d-none')) {
+                btnAccessParty.classList.remove('d-none');
+            };
+            if (btnSortGuestsList.classList.contains('d-none')) {
+                btnSortGuestsList.classList.remove('d-none');
+            };
+            if (addedGuests.classList.contains('d-none')) {
+                addedGuests.classList.remove('d-none');
+            };
             const newListElement = document.createElement('li');
-            newListElement.innerText = currentEmail;
+            newListElement.innerText = newGuest;
             addedGuestsList.appendChild(newListElement);
-        };
-    }
-    console.table(acceptedEmails)
-
-    if (btnAccessParty.classList.contains('d-none')) {
-        btnAccessParty.classList.remove('d-none');
-    };
-    if (btnSortGuestsList.classList.contains('d-none')) {
-        btnSortGuestsList.classList.remove('d-none');
-    };
-    if (addedGuests.classList.contains('d-none')) {
-        addedGuests.classList.remove('d-none');
     };
 };
 
@@ -97,7 +94,7 @@ function sortGuests () {
     arrayToSort.forEach((listItem) => {
         addedGuestsList.appendChild(listItem);
     })
-};
+}
 
 
 

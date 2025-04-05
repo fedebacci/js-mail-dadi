@@ -47,16 +47,13 @@ btnAddGuests.addEventListener('click', addGuestsToAcceptedEmails);
 
 function addGuestsToAcceptedEmails () {
     const newGuests = prompt("Aggiungi l'indirizzo e-mail di tutti gli invitati, separandoli con una virgola. Segui l'esempio", "test1@email.it, test2@email.it").replaceAll(" ", "");
+    acceptedEmails.length = 0;
     // Se volessimo accertarci che non vengano inseriti altri simboli, come / o altri tra le email, per rimuoverli utilizzerei lo sesso metodo su tutti i simboli che non voglio prima di utilizzare lo split.
     const TmpAcceptedEmails = newGuests.split(',');
     console.debug("TmpAcceptedEmails", TmpAcceptedEmails);
     for (let i = 0; i <= TmpAcceptedEmails.length - 1; i ++) {
         const currentEmail = TmpAcceptedEmails[i];
-
-        // CONTROLLO CHE L'ULTIMO VALORE NON SIA UNA STRINGA VUOTA, CHE SUCCEDE SE L'UTENTE INSERISCE DUE VOLTE LA VIRGOLA SENZA CARATTERI DIVERSI DALLO SPAZIO A SEPARARLE O COME ULTIMO CARATTERE UNA VIRGOLA
-        // CONTROLLO ANCHE LA PRESENZA DI DOPPIONI
-        const isDuplicate = acceptedEmails.find((email) => email === currentEmail);
-        if (currentEmail.length !== 0 && isDuplicate === undefined) {
+        if (currentEmail.length !== 0) {
             acceptedEmails.push(currentEmail);
         };
     }

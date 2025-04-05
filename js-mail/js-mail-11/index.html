@@ -156,7 +156,7 @@
                 <div class="row">
                     <div class="col-12">
                         <h1>
-                            JS Mail #4
+                            JS Mail #11
                         </h1>
                         <p class="mt-5">
                             Crea una lista di email di invitati ad una festa. Chiedi all’utente la sua email, controlla
@@ -176,20 +176,36 @@
                             Dopo la correzione, provo ad implementare le sfide lanciate da Samuel.
                             <br />
                             <strong>
-                                Sfida attuale (#1):
+                                Sfida attuale (#8):
                             </strong>
-                            Data una lista di email iniziale, genera un numero randomico N e crea l'array di email
-                            accettate contenente N email.
+                            Chiedo all'utente di inserire gli indirizzi e-mail di tutti gli invitati, uno per uno,
+                            tramite il click di un pulsante.
                             <br />
-                            Inoltre, invece di assegnare come email di default del prompt la prima email accettata, ne
-                            assegno una randomica tra quelle accettate.
+                            Data la difficoltà per l'utente di tenere traccia degli indirizzi inseriti li inserisco in
+                            una lista sotto ai pulsanti, nell'ordine da lui inseriti (non li riordino in ordine
+                            alfabetico automaticamente).
+                            <br />
+                            Se l'utente vuole, può riordinarli in ordine alfabetico tramite un apposito pulsante.
+                            <br />
+                            In questa versione cancello il contenuto della lista sulla pagina, riordino gli elementi
+                            della lista di emal accettate e poi genero una nuova lista sulla pagina.
                         </p>
-                        <button id="accessParty" class="btn btn-primary">
+                        <button id="accessParty" class="btn btn-primary d-none">
                             Accedi alla festa
                         </button>
-                        <button id="newList" class="btn btn-primary">
-                            Genera nuova lista di invitati
+                        <button id="sortGuestsList" class="btn btn-primary d-none">
+                            Riordina invitati
                         </button>
+                        <button id="addGuests" class="btn btn-primary">
+                            Aggiungi un invitato alla lista
+                        </button>
+                        <div id="addedGuests" class="d-none mt-3">
+                            <h3>
+                                I tuoi invitati
+                            </h3>
+                            <ul id="addedGuestsList">
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>

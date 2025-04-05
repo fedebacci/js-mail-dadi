@@ -70,7 +70,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <hr class="dropdown-divider" 7>
+                                    <hr class="dropdown-divider" />
                                 </li>
                                 <li>
                                     <a class="dropdown-item disabled" aria-disabled="true">
@@ -87,6 +87,7 @@
                                         JS Mail #5
                                     </a>
                                 </li>
+                                <hr class="dropdown-divider" />
                                 <li>
                                     <a class="dropdown-item" href="/js-mail/js-mail-6/index.html">
                                         JS Mail #6
@@ -102,6 +103,7 @@
                                         JS Mail #8
                                     </a>
                                 </li>
+                                <hr class="dropdown-divider" />
                                 <li>
                                     <a class="dropdown-item" href="/js-mail/js-mail-9/index.html">
                                         JS Mail #9
@@ -110,6 +112,22 @@
                                 <li>
                                     <a class="dropdown-item" href="/js-mail/js-mail-10/index.html">
                                         JS Mail #10
+                                    </a>
+                                </li>
+                                <hr class="dropdown-divider" />
+                                <li>
+                                    <a class="dropdown-item" href="/js-mail/js-mail-11/index.html">
+                                        JS Mail #11
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="/js-mail/js-mail-12/index.html">
+                                        JS Mail #12
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="/js-mail/js-mail-13/index.html">
+                                        JS Mail #13
                                     </a>
                                 </li>
                             </ul>
@@ -160,14 +178,20 @@
                             <strong>
                                 Sfida attuale (#7):
                             </strong>
-                            Chiedo all'utente di inserire gli indirizzi e-mail di tutti gli invitati, uno per uno,
-                            tramite il click di un pulsante.
+                            Chiedo all'utente di inserire gli indirizzi e-mail di tutti gli invitati, separati da un
+                            carattere specifico (in
+                            questo caso da una virgola).
+                            <br />
+                            La presenza di spazi o meno tra gli indirizzi inseriti è ininfluente.
+                            <br />
+                            Ogni volta che l'utente invia un input la lista di email <strong>non</strong> viene ricreata
+                            da 0, ma aggiunta a
+                            quanto già presente (controllando per eventuali duplicati).
                             <br />
                             Data la difficoltà per l'utente di tenere traccia degli indirizzi inseriti li inserisco in
-                            una lista sotto ai pulsanti, nell'ordine da lui inseriti (non li riordino in ordine
-                            alfabetico automaticamente).
+                            una lista sotto ai pulsanti, nell'ordine da lui inseriti.
                             <br />
-                            Se l'utente vuole, può riordinarli in ordine alfabetico tramite un apposito pulsante.
+                            Inserisco anche il pulsante per riordinare le email.
                         </p>
                         <button id="accessParty" class="btn btn-primary d-none">
                             Accedi alla festa
@@ -176,7 +200,7 @@
                             Riordina invitati
                         </button>
                         <button id="addGuests" class="btn btn-primary">
-                            Aggiungi un invitato alla lista
+                            Aggiungi gli invitati alla lista
                         </button>
                         <div id="addedGuests" class="d-none mt-3">
                             <h3>
