@@ -11,80 +11,81 @@
     // * TRAMITE PESCA CASUALE DI N EMAIL (DOVE N E NUMERO INSERITO DA UTENTE) DA UNA LISTA DI NOMI GIA CREATA
     // * TRAMITE PESCA CASUALE DI N EMAIL (DOVE N E NUMERO GENERATO CASUALMENTE) DA UNA LISTA DI NOMI GIA CREATA
         // * GENERATA IN MODO NON LINEARE (NON DALLA PRIMA ALLA N, MA PESCANDO OGNI VOLTA UNA A CASO DALLA LISTA INIZIALE)
-        const listOfEmails = [
-            "alessia@email.it",
-            "bernardo@email.it",
-            "camilla@email.it",
-            "domenico@email.it",
-            "elena@email.it",
-            "fabio@email.it",
-            "ginevra@email.it",
-            "harrison@email.it",
-            "immacolata@email.it",
-            "leonardo@email.it",
-            "marta@email.it",
-            "nicola@email.it",
-            "olimpia@email.it",
-            "paolo@email.it",
-            "quincy@email.it",
-            "raffaele@email.it",
-            "simona@email.it",
-            "tommaso@email.it",
-            "umberta@email.it",
-            "vincenzo@email.it",
-            "zoe@email.it"
-        ]
-        const minNames = 1;
-        const maxNames = listOfEmails.length - 1;
-        const acceptedEmails = [];
-        generateListOfAcceptedEmails();
+
+
+
+const listOfEmails = [
+    "alessia@email.it",
+    "bernardo@email.it",
+    "camilla@email.it",
+    "domenico@email.it",
+    "elena@email.it",
+    "fabio@email.it",
+    "ginevra@email.it",
+    "harrison@email.it",
+    "immacolata@email.it",
+    "leonardo@email.it",
+    "marta@email.it",
+    "nicola@email.it",
+    "olimpia@email.it",
+    "paolo@email.it",
+    "quincy@email.it",
+    "raffaele@email.it",
+    "simona@email.it",
+    "tommaso@email.it",
+    "umberta@email.it",
+    "vincenzo@email.it",
+    "zoe@email.it"
+]
+const minNames = 1;
+const maxNames = listOfEmails.length - 1;
+const acceptedEmails = [];
+generateListOfAcceptedEmails();
     
-        
+
     
-    // * VERSIONE CON PULSANTE PIÚ USER-FRIENDLY
-    // * FATTA UTILIZZANDO METODI ARRAY APPROPRIATI
-    const btnAccessParty = document.getElementById('accessParty');
-    btnAccessParty.addEventListener('click', () => {
-        console.clear();
-        console.table(acceptedEmails);
-        
-        const userEmail = prompt("Inserisci la tua email", acceptedEmails[getRandomNumber(0, acceptedEmails.length - 1)]);
-        console.debug(`Email inserita dall'utente: ${userEmail}`);
-        console.debug("__________");
-        let emailFound = acceptedEmails.find((email) => email === userEmail);
-        console.debug(emailFound);
-        if (emailFound === undefined) {
-            console.info("Mi dispiace, non sei stato invitato!");
-            alert("Mi dispiace, non sei stato invitato!");
-        } else {
-            console.info("Puoi venire alla festa!");
-            alert("Puoi venire alla festa!");
+const btnAccessParty = document.getElementById('accessParty');
+btnAccessParty.addEventListener('click', () => {
+    console.clear();
+    console.table(acceptedEmails);
+    
+    const userEmail = prompt("Inserisci la tua email", acceptedEmails[getRandomNumber(0, acceptedEmails.length - 1)]);
+    console.debug(`Email inserita dall'utente: ${userEmail}`);
+    console.debug("__________");
+    let emailFound = acceptedEmails.find((email) => email === userEmail);
+    console.debug(emailFound);
+    if (emailFound === undefined) {
+        console.info("Mi dispiace, non sei stato invitato!");
+        alert("Mi dispiace, non sei stato invitato!");
+    } else {
+        console.info("Puoi venire alla festa!");
+        alert("Puoi venire alla festa!");
+    };
+});
+
+const btnNewList = document.getElementById('newList');
+btnNewList.addEventListener('click', generateListOfAcceptedEmails)
+
+
+
+function getRandomNumber (max, min) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+function generateListOfAcceptedEmails() {
+    console.clear();
+    acceptedEmails.length = 0;
+    const numberOfNames = getRandomNumber(maxNames, minNames);
+    console.debug("______ numberOfNames", numberOfNames);
+    while (acceptedEmails.length < numberOfNames) {
+        const currentName = listOfEmails[getRandomNumber(listOfEmails.length - 1, 0)];
+        // console.debug("acceptedEmails.length", acceptedEmails.length);
+        // console.debug("currentName", currentName);
+        if (acceptedEmails.find((email) => email === currentName) === undefined) {
+            acceptedEmails.push(currentName);
         };
-    });
-    
-    const btnNewList = document.getElementById('newList');
-    btnNewList.addEventListener('click', generateListOfAcceptedEmails)
-    
-    
-    
-    function getRandomNumber (max, min) {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    };
-    function generateListOfAcceptedEmails() {
-        console.clear();
-        acceptedEmails.length = 0;
-        const numberOfNames = getRandomNumber(maxNames, minNames);
-        console.debug("______ numberOfNames", numberOfNames);
-        while (acceptedEmails.length < numberOfNames) {
-            const currentName = listOfEmails[getRandomNumber(listOfEmails.length - 1, 0)];
-            // console.debug("acceptedEmails.length", acceptedEmails.length);
-            // console.debug("currentName", currentName);
-            if (acceptedEmails.find((email) => email === currentName) === undefined) {
-                acceptedEmails.push(currentName);
-            };
-        }
-        acceptedEmails.sort();
-        console.table(acceptedEmails);
-        console.debug("acceptedEmails.length", acceptedEmails.length);
-        console.debug("Il numero di email accettate è uguale al numero randomico estratto?", acceptedEmails.length === numberOfNames);
-    };
+    }
+    acceptedEmails.sort();
+    console.table(acceptedEmails);
+    console.debug("acceptedEmails.length", acceptedEmails.length);
+    console.debug("Il numero di email accettate è uguale al numero randomico estratto?", acceptedEmails.length === numberOfNames);
+};

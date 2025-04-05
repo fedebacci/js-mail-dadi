@@ -47,6 +47,14 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
+                                    <a class="dropdown-item disabled" aria-disabled="true">
+                                        Esercizio iniziale
+                                    </a>
+                                </li>
+                                <li>
+                                    <!-- DISABILITATO METODO PER RICARICARE LA PAGINA AUTOMATICAMENTE PER PERMETTERE NAVIGAZIONE DA ESERCIZIO 1 AGLI ALTRI -->
+                                    <!-- SE RIABILITATO, DISABILITARE LA VOCE DI MENU, ALTRIMENTI DALL'ESERCIZIO 1 SARA IMPOSSIBILE NAVIGARE AGLI ALTRI ESERCIZI (ALMENO DI NON TORNARE INDIETRO NEL BROWSER FINO AD UN ESERCIZIO DIVERSO) -->
+                                    <!-- <a class="dropdown-item disabled" aria-disabled="true"> -->
                                     <a class="dropdown-item" href="/js-mail/js-mail-1/index.html">
                                         JS Mail #1
                                     </a>
@@ -59,6 +67,14 @@
                                 <li>
                                     <a class="dropdown-item" href="/js-mail/js-mail-3/index.html">
                                         JS Mail #3
+                                    </a>
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider" 7>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item disabled" aria-disabled="true">
+                                        Sfide
                                     </a>
                                 </li>
                                 <li>
@@ -145,6 +161,9 @@
                             invitati.
                             <br />
                             Il pulsante è sempre presente. Inizialmente viene nascosto, poi viene mostrato.
+                            <br />
+                            Inoltre, per verificare la correttezza dell'input dell'utente, utilizzo uno switch invece di
+                            un if-else
                         </p>
                         <button id="accessParty" class="btn btn-primary d-none">
                             Accedi alla festa

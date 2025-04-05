@@ -42,4 +42,6 @@ if (emailFound === true) {
     console.info("Mi dispiace, non sei stato invitato!");
     alert("Mi dispiace, non sei stato invitato!");
 }
-window.location.reload()
+// <!-- DISABILITATO METODO PER RICARICARE LA PAGINA AUTOMATICAMENTE PER PERMETTERE NAVIGAZIONE DA ESERCIZIO 1 AGLI ALTRI -->
+// <!-- SE RIABILITATO, DISABILITARE LA VOCE DI MENU, ALTRIMENTI DALL'ESERCIZIO 1 SARA IMPOSSIBILE NAVIGARE AGLI ALTRI ESERCIZI (ALMENO DI NON TORNARE INDIETRO NEL BROWSER FINO AD UN ESERCIZIO DIVERSO) -->
+// window.location.reload()

@@ -45,8 +45,7 @@
     
         
     
-    // * VERSIONE CON PULSANTE PIÚ USER-FRIENDLY
-    // * FATTA UTILIZZANDO METODI ARRAY APPROPRIATI
+
     const btnAccessParty = document.getElementById('accessParty');
     btnAccessParty.addEventListener('click', () => {
         console.clear();

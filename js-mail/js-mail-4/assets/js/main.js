@@ -11,38 +11,39 @@
     // * TRAMITE PESCA CASUALE DI N EMAIL (DOVE N E NUMERO INSERITO DA UTENTE) DA UNA LISTA DI NOMI GIA CREATA
     // * TRAMITE PESCA CASUALE DI N EMAIL (DOVE N E NUMERO GENERATO CASUALMENTE) DA UNA LISTA DI NOMI GIA CREATA
         // * GENERATA IN MODO NON LINEARE (NON DALLA PRIMA ALLA N, MA PESCANDO OGNI VOLTA UNA A CASO DALLA LISTA INIZIALE)
-    const listOfEmails = [
-        "alessia@email.it",
-        "bernardo@email.it",
-        "camilla@email.it",
-        "domenico@email.it",
-        "elena@email.it",
-        "fabio@email.it",
-        "ginevra@email.it",
-        "harrison@email.it",
-        "immacolata@email.it",
-        "leonardo@email.it",
-        "marta@email.it",
-        "nicola@email.it",
-        "olimpia@email.it",
-        "paolo@email.it",
-        "quincy@email.it",
-        "raffaele@email.it",
-        "simona@email.it",
-        "tommaso@email.it",
-        "umberta@email.it",
-        "vincenzo@email.it",
-        "zoe@email.it"
-    ]
-    const minNames = 1;
-    const maxNames = listOfEmails.length - 1;
-    const acceptedEmails = [];
-    generateListOfAcceptedEmails();
+
+
+
+const listOfEmails = [
+    "alessia@email.it",
+    "bernardo@email.it",
+    "camilla@email.it",
+    "domenico@email.it",
+    "elena@email.it",
+    "fabio@email.it",
+    "ginevra@email.it",
+    "harrison@email.it",
+    "immacolata@email.it",
+    "leonardo@email.it",
+    "marta@email.it",
+    "nicola@email.it",
+    "olimpia@email.it",
+    "paolo@email.it",
+    "quincy@email.it",
+    "raffaele@email.it",
+    "simona@email.it",
+    "tommaso@email.it",
+    "umberta@email.it",
+    "vincenzo@email.it",
+    "zoe@email.it"
+];
+const minNames = 1;
+const maxNames = listOfEmails.length - 1;
+const acceptedEmails = [];
+generateListOfAcceptedEmails();
 
     
 
-// * VERSIONE CON PULSANTE PIÚ USER-FRIENDLY
-// * FATTA UTILIZZANDO METODI ARRAY APPROPRIATI
 const btnAccessParty = document.getElementById('accessParty');
 btnAccessParty.addEventListener('click', () => {
     console.clear();
