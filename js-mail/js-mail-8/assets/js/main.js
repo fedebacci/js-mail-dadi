@@ -43,6 +43,31 @@
             // * VOGLIO NASCONDERE IL PULSANTE ACCEDI ALLA FESTA FINCHE NON VIENE GENERATA LA LISTA DI INVITATI
         // generateListOfAcceptedEmails();
     
+
+
+    const btnAccessParty = document.getElementById('accessParty');
+    btnAccessParty.addEventListener('click', () => {
+        console.clear();
+        console.table(acceptedEmails);
+
+        console.log("acceptedEmails");
+        if (acceptedEmails.length !== 0) {
+            const userEmail = prompt("Inserisci la tua email", acceptedEmails[getRandomNumber(0, acceptedEmails.length - 1)]);
+            console.debug(`Email inserita dall'utente: ${userEmail}`);
+            console.debug("__________");
+            let emailFound = acceptedEmails.find((email) => email === userEmail);
+            console.debug(emailFound);
+            if (emailFound === undefined) {
+                console.info("Mi dispiace, non sei stato invitato!");
+                alert("Mi dispiace, non sei stato invitato!");
+            } else {
+                console.info("Puoi venire alla festa!");
+                alert("Puoi venire alla festa!");
+            };
+        } else {
+            alert("Non hai ancora creato una lista di invitati. Creala e riprova.")
+        };
+    });
         
     
     // * VERSIONE CON PULSANTE PIÚ USER-FRIENDLY
@@ -71,13 +96,13 @@
         
         if (numberOfNames === 0 || userInput === null || (isNaN(numberOfNames) && userInput.length === 0)) {
             alert("Devi invitare qualcuno per fare una festa!");
-            generateListOfAcceptedEmails();
+            generateListOfAcceptedEmails()
         } else if (userInput.length !== numberOfNames.toString().length || isNaN(numberOfNames)) {
             alert("È stato inserito qualcosa che non è un numero dentro l'input, riprova");
-            generateListOfAcceptedEmails();
+            generateListOfAcceptedEmails()
         } else if (numberOfNames > listOfEmails.length) {
             alert(`Non puoi invitare più di ${listOfEmails.length} persone perchè non hai abbastanza indirizzi a disposizione`);
-            generateListOfAcceptedEmails();
+            generateListOfAcceptedEmails()
         } else {
             while (acceptedEmails.length < numberOfNames) {
                 const currentName = listOfEmails[getRandomNumber(listOfEmails.length - 1, 0)];
@@ -88,39 +113,8 @@
             acceptedEmails.sort();
             alert(`La lista di ${numberOfNames} invitati è stata generata`);
 
-            if (document.getElementById('accessParty') === null) {
-                const btnAccessPartyPlaceholder = document.getElementById('btnAccessPartyPlaceholder');
-                const btnAccessParty = document.createElement('button');
-                btnAccessParty.classList.add('btn', 'btn-primary');
-                btnAccessParty.id = "accessParty";
-                btnAccessParty.innerText = "Accedi alla festa";
-                console.log("btnAccessPartyPlaceholder", btnAccessPartyPlaceholder);
-                console.log("btnAccessParty", btnAccessParty);
-
-                btnAccessParty.addEventListener('click', () => {
-                    console.clear();
-                    console.table(acceptedEmails);
-            
-                    console.log("acceptedEmails");
-                    if (acceptedEmails.length !== 0) {
-                        const userEmail = prompt("Inserisci la tua email", acceptedEmails[getRandomNumber(0, acceptedEmails.length - 1)]);
-                        console.debug(`Email inserita dall'utente: ${userEmail}`);
-                        console.debug("__________");
-                        let emailFound = acceptedEmails.find((email) => email === userEmail);
-                        console.debug(emailFound);
-                        if (emailFound === undefined) {
-                            console.info("Mi dispiace, non sei stato invitato!");
-                            alert("Mi dispiace, non sei stato invitato!");
-                        } else {
-                            console.info("Puoi venire alla festa!");
-                            alert("Puoi venire alla festa!");
-                        };
-                    } else {
-                        alert("Non hai ancora creato una lista di invitati. Creala e riprova.")
-                    };
-                });
-
-                btnAccessPartyPlaceholder.appendChild(btnAccessParty);
+            if (btnAccessParty.classList.contains('d-none')) {
+                btnAccessParty.classList.remove('d-none');
             }
 
             console.table(acceptedEmails);
