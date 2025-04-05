@@ -115,7 +115,7 @@ function generateListOfAcceptedEmails() {
 
             if (btnAccessParty.classList.contains('d-none')) {
                 btnAccessParty.classList.remove('d-none');
-            }
+            };
 
             console.table(acceptedEmails);
             console.debug("acceptedEmails.length", acceptedEmails.length);

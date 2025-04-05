@@ -133,7 +133,7 @@
                 <div class="row">
                     <div class="col-12">
                         <h1>
-                            JS Mail #8
+                            JS Mail #9
                         </h1>
                         <p class="mt-5">
                             Crea una lista di email di invitati ad una festa. Chiedi all’utente la sua email, controlla
@@ -153,28 +153,25 @@
                             Dopo la correzione, provo ad implementare le sfide lanciate da Samuel.
                             <br />
                             <strong>
-                                Sfida attuale (#5):
+                                Sfida attuale (#6):
                             </strong>
-                            Data una lista di email iniziale, chiedi all'utente un numero N di invitati da aggiongere
-                            alla lista di email accettate.
+                            Chiedo all'utente di inserire gli indirizzi e-mail di tutti gli invitati, separati da un
+                            carattere specifico (in
+                            questo caso da una virgola).
                             <br />
-                            Siccome non voglio mostrare all'utente un prompt al caricamento iniziale della pagina, lo
-                            chiedo al click del pulsante "Genera nuova lista di invitati"
+                            La presenza di spazi o meno tra gli indirizzi inseriti è ininfluente.
                             <br />
-                            In questa seconda versione di questa sfida risolvo l'assenza iniziale di invitati
-                            mostrando il pulsante "Accedi alla festa" solo dopo che è stata generata una lista di
-                            invitati.
+                            Ogni volta che l'utente invia un input la lista di email viene ricreata da 0, non aggiunta a
+                            quanto già presente.
                             <br />
-                            Il pulsante è sempre presente. Inizialmente viene nascosto, poi viene mostrato.
-                            <br />
-                            Inoltre, per verificare la correttezza dell'input dell'utente, utilizzo uno switch invece di
-                            un if-else
+                            I test per il mantenimento della lista precedente verranno eseguiti nella prossima sfida, in
+                            cui chiedo comunque all'utente più di un input per creare la lista di invitati.
                         </p>
                         <button id="accessParty" class="btn btn-primary d-none">
                             Accedi alla festa
                         </button>
-                        <button id="newList" class="btn btn-primary">
-                            Genera nuova lista di invitati
+                        <button id="addGuests" class="btn btn-primary">
+                            Aggiungi gli invitati alla lista
                         </button>
                     </div>
                 </div>
