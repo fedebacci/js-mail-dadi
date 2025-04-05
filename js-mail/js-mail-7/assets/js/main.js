@@ -75,22 +75,24 @@
     // * TODO
     // * DECIDERE SE VOGLIO NASCONDERE IL PULSANTE ACCEDI ALLA FESTA OPPURE SE VOGLIO CONTROLLARE, QUANDO VIENE CLICCATO, LA PRESENZA DI INVITATI
     const btnNewList = document.getElementById('newList');
-    btnNewList.addEventListener('click', () => {
-        // NB: ORA CHE NON LA ESEGUO PIU AL CARICAMENTO DELLA PAGINA NON SERVE AVERLA COME FUNZIONE generateListOfAcceptedEmails(), QUINDI LA SCRIVO DIRETTAMENTE DENTRO L'EVENT LISTENER DEL PULSANTE
+    btnNewList.addEventListener('click', generateListOfAcceptedEmails);
+    
+    
+    
+    function getRandomNumber (max, min) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    };
+    // NB: ORA CHE NON LA ESEGUO PIU AL CARICAMENTO DELLA PAGINA NON SERVE AVERLA COME FUNZIONE generateListOfAcceptedEmails(), QUINDI LA SCRIVO DIRETTAMENTE DENTRO L'EVENT LISTENER DEL PULSANTE
+    function generateListOfAcceptedEmails() {
         console.clear();
         acceptedEmails.length = 0;
-        const userInput = prompt(`Quante persone vuoi invitare? (ricorda che la tua lista di email contiene ${listOfEmails.length} indirizzi)`, 1);
-        const numberOfNames = parseInt(userInput);
-        console.debug("______ userInput", userInput);
+        const numberOfNames = parseInt(prompt(`Quante persone vuoi invitare? (ricorda che la tua lista di email contiene ${listOfEmails.length} indirizzi)`, 1));
         console.debug("______ numberOfNames", numberOfNames);
 
-        
-        if (numberOfNames === 0 || userInput === null || (isNaN(numberOfNames) && userInput.length === 0)) {
+        if (numberOfNames === 0 || isNaN(numberOfNames)) {
             alert("Devi invitare qualcuno per fare una festa!");
-        } else if (userInput.length !== numberOfNames.toString().length || isNaN(numberOfNames)) {
-            alert("È stato inserito qualcosa che non è un numero dentro l'input, riprova");
         } else if (numberOfNames > listOfEmails.length) {
-            alert(`Non puoi invitare più di ${listOfEmails.length} persone perchè non hai abbastanza indirizzi a disposizione`);
+            alert(`Non puoi invitare più di ${listOfEmails.length} persone perchè non hai abbastanza indirizzi a disposizione`)
         } else {
             while (acceptedEmails.length < numberOfNames) {
                 const currentName = listOfEmails[getRandomNumber(listOfEmails.length - 1, 0)];
@@ -104,10 +106,5 @@
             console.debug("acceptedEmails.length", acceptedEmails.length);
             console.debug("Il numero di email accettate è uguale al numero randomico estratto?", acceptedEmails.length === numberOfNames);
         }
-    });
-    
-    
-    
-    function getRandomNumber (max, min) {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
+
     };
